@@ -1,20 +1,15 @@
-import AddProductModal from "../components/AddProductModal";
-import DrawerCart from "../components/DrawerCart";
-import ProductListContainer from "../components/ProductListContainer";
-import ProductToolbar from "../components/ProductToolbar";
-
+import FeaturedProducts from "../components/FeaturedProducts"
+import Features from "../components/Features"
+import Hero from "../components/Hero"
 function HomePage() {
-  
   return (
-    <main className="mx-auto px-4 py-8 max-w-6xl">
-      <ProductToolbar />
-      <AddProductModal />
-      <ProductListContainer/>
-      <DrawerCart />
-
-
-    </main>
-  );
+    <div>
+        <Hero />
+        <FeaturedProducts />
+        <Features />
+      
+    </div>
+  )
 }
 
-export default HomePage;
+export default HomePage
