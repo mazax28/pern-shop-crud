@@ -3,9 +3,10 @@ import { Trash2Icon, EditIcon, ShoppingCart } from 'lucide-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { deleteProduct } from '../api/apiProducts'
 import { useCartProducts } from '../store/useCartProducts'
-function ProductCard({ product }) {
 
-    const {addToCart} = useCartProducts()
+
+const ProductCard = ({ product }) => {
+      const {addToCart} = useCartProducts()
     const client = true
     const queryClient = useQueryClient()
     const mutation = useMutation({
@@ -25,41 +26,45 @@ function ProductCard({ product }) {
     const handleDelete = () => {
         mutation.mutate(product.id)
     }
-  return (
-    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-        <figure className="relative pt-[56.25%]">
-            <img src={product.image} alt={product.name} className="absolute top-0 left-0 w-full h-full object-cover" />
-        </figure>
-        <div className="card-body">
-            <h2 className="card-title text-lg font-semibold">{product.name}</h2>
-            <p className="text-2xl font-bold text-primary">${Number(product.price).toFixed(2)}</p>
-        </div>
+  return(
+      <div
+                    key={product.id}
+                    className="group bg-white rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  >
+                    {/* Product Image */}
+                    <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-square overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+               
+              </div>
 
-        <div className="card-actions justify-end m-4">
-          {
-            client ? (
-              <button onClick={handleAddToCart} className="btn btn-sm btn-primary btn-outline">
-                  <ShoppingCart className="size-4" />
-              </button>
-              
+                    {/* Product Info */}
+                    <div className="p-6">
 
-            ) : (
-              <>
-                <Link to={`/product/${product.id}`} className="btn btn-sm btn-info btn-outline">
-                  <EditIcon className="size-4" />
-                </Link>
-                <button className="btn btn-sm btn-error btn-outline">
-                  <Trash2Icon className="size-4" />
-                </button>
-              
-              </>
-            )
-          }
-         
-        </div>
-      
-    </div>
+
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                        {product.name}
+                      </h3>
+
+                      <div className="flex items-center space-x-2 mb-4">
+                        <span className="text-2xl font-bold text-emerald-600">
+                          ${product.price}
+                        </span>
+  
+                      </div>
+
+                      <button onClick={handleAddToCart} className="w-full bg-emerald-500 text-white py-3 rounded-xl cursor-pointer hover:bg-emerald-600 transition-colors flex items-center justify-center space-x-2 group">
+                        <ShoppingCart className="w-5 h-5" />
+                        <span>Agregar al Carrito</span>
+                      </button>
+                    </div>
+      </div>
+
   )
 }
 
 export default ProductCard
+
