@@ -17,11 +17,11 @@ function ProductToolbar() {
     
     <div className="flex justify-between items-center mb-8">
         
-        <button className="btn btn-primary "  onClick={() => document.getElementById("add_product_modal").showModal()}> 
+        <button className="btn bg-emerald-500 border-none "  onClick={() => document.getElementById("add_product_modal").showModal()}> 
           <PlusCircleIcon className="size-5 mr-2" />
           Add Product
         </button>
-        <input value={searchTerm} onChange={hanleChange} type="text" placeholder="Type here" className="input" />
+        <input  value={searchTerm} onChange={hanleChange} type="text" placeholder="Type here" className="input text-gray-700 bg-transparent border-gray-400" />
 
 
         <button onClick={handleRefresh} className="btn btn-ghost btn-circle">
