@@ -54,7 +54,9 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent rounded-3xl"></div>
             <div className="relative bg-white rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl">🎧</div>
+                <div className="text-6xl">
+                  <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=800&auto=format&fit=crop&q=60" alt="" />
+                </div>
               </div>
             </div>
           </div>
