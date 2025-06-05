@@ -17,9 +17,9 @@ function DrawerCart({ isOpen, toggleDrawer }) {
         />
         <div className="drawer-side">
           <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+          <ul className="bg-gray-50 min-h-full w-80 p-4">
             {/* Sidebar content */}
-            <li className="text-2xl font-bold mb-4 text-center">Your Cart</li>
+            <li className="text-2xl text-emerald-500 font-bold mb-4 text-center">Your Cart</li>
             {
                 cartProducts?.map(product => (
                     <li key={product.id}>
