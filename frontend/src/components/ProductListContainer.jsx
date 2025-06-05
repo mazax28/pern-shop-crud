@@ -33,7 +33,7 @@ function ProductListContainer() {
             isLoading ? 
             (
             <div className="flex justify-center items-center h-64">
-                <div className="loading loading-spinner loading-lg"></div>
+                <div className="loading loading-spinner loading-xl text-emerald-500"></div>
             </div>
             )
             :
